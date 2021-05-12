@@ -1,9 +1,9 @@
 import React from 'react';
-//import Movie
+import Movie from './Movie.js';
 
 
 function MovieLibrary({movies}) {
-    const newMovie = movies.map(movie => {
+    const newMovie = movies.movieData.movies.map(movie => {
       return (
         <Movie
           key={movie.id}
@@ -23,18 +23,6 @@ function MovieLibrary({movies}) {
   )
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
