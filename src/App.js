@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import movieData from './movieData.js';
-// import MovieLibrary from './components/MovieLibrary.js';
+import MovieLibrary from './components/MovieLibrary.js';
 
 class App extends Component {
   constructor() {
@@ -10,11 +10,11 @@ class App extends Component {
       movies: {movieData}
     }
   }
-  //mapping over movieData here to create prop for MovieLibrary
   render() {
     return (
       <div>
         <h1>Hello</h1>
+        <MovieLibrary movies={this.state.movies}/>
       </div>
     );
   }
