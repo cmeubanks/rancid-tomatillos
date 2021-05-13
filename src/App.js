@@ -12,11 +12,20 @@ class App extends Component {
       movies: {movieData}
     }
   }
+
+  iAmATest() {
+    return console.log('hi')
+  }
+
+  //handleClick() {
+
+  //}
+
   render() {
     return (
       <div className='main-page'>
         <Header />
-        <MovieLibrary movies={this.state.movies}/>
+        <MovieLibrary movies={this.state.movies} test={() => this.iAmATest()}/>
       </div>
     );
   }
