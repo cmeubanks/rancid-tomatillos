@@ -1,8 +1,6 @@
 import React from 'react';
 
-
-function Movie({title, posterPath}) {
-
+function Card({title, posterPath}) {
 
   return (
     <article className='movie-card'>
@@ -12,6 +10,4 @@ function Movie({title, posterPath}) {
   )
 }
 
-
-
-export default Movie;
+export default Card;

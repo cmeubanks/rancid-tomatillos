@@ -1,29 +1,26 @@
 import React from 'react';
-import Movie from './Movie.js';
-
+import Card from './Card.js';
 
 function MovieLibrary({movies}) {
-    const newMovie = movies.movieData.movies.map(movie => {
+    const newCards = movies.movieData.movies.map(film => {
       return (
-        <Movie
-          key={movie.id}
-          averageRating={movie.average_rating}
-          backdropPath={movie.backdrop_path}
-          posterPath={movie.poster_path}
-          title={movie.title}
-          releaseDate={movie.release_date}
+        <Card
+          key={film.id}
+          averageRating={film.average_rating}
+          backdropPath={film.backdrop_path}
+          posterPath={film.poster_path}
+          title={film.title}
+          releaseDate={film.release_date}
         />
       )
     })
 
   return (
     <section className="library">
-      {newMovie}
+      {newCards}
     </section>
   )
 
 }
-
-
 
 export default MovieLibrary;
