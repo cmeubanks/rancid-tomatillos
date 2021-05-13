@@ -12,6 +12,11 @@ class App extends Component {
       movies: {movieData}
     }
   }
+
+  // iAmATest() {
+  //   return console.log('hi')
+  // }
+
   render() {
     return (
       <div className='main-page'>
