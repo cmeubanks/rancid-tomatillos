@@ -1,0 +1,11 @@
+.navbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid black;
+  background-color: $primary-header;
+  border-bottom: 3px solid $secondary-accent;
+  color: $primary-accent;
+  height: 150px;
+  font-size: 40px;
+}
