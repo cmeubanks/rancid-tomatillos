@@ -17,7 +17,7 @@ function MovieLibrary({movies}) {
     })
 
   return (
-    <section>
+    <section className="library">
       {newMovie}
     </section>
   )

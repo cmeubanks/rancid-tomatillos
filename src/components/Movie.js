@@ -5,8 +5,8 @@ function Movie({title, posterPath}) {
 
 
   return (
-    <article>
-      <p> {title} </p>
+    <article className='movie-card'>
+      <p></p>
       <img src={posterPath}/>
     </article>
   )
