@@ -1,9 +1,9 @@
 import React from 'react';
 
-function Card({posterPath}) {
+function Card({test, posterPath}) {
 
   return (
-    <article className='movie-card'>
+    <article onClick={(event) => test} className='movie-card'>
       <img src={posterPath}/>
     </article>
   )
