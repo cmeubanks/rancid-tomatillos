@@ -23,3 +23,4 @@ function MovieInfo({movie}) {
   }
 
 export default MovieInfo;
+//

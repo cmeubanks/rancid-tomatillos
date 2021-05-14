@@ -10,3 +10,4 @@ function Card({id, test, posterPath, handleClick}) {
 }
 
 export default Card;
+//

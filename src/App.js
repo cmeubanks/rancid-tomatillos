@@ -3,7 +3,7 @@ import Header from './components/Header';
 import MovieLibrary from './components/MovieLibrary';
 import MovieInfo from './components/MovieInfo';
 
-import movieData from './movieData';
+import movieData from './movieData.js';
 import './index.scss';
 
 class App extends Component {
