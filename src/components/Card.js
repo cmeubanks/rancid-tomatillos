@@ -1,12 +1,13 @@
 import React from 'react';
 
-function Card({test, posterPath}) {
+function Card({id, test, posterPath, handleClick}) {
 
   return (
-    <article onClick={(event) => test} className='movie-card'>
-      <img src={posterPath}/>
+    <article onClick={handleClick} className='movie-card'>
+      <img id={id} src={posterPath} alt='movie poster'/>
     </article>
   )
 }
 
 export default Card;
+//
