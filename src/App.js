@@ -1,31 +1,36 @@
 import React, { Component } from 'react';
-import movieData from './movieData.js';
-import Header from './components/Header.js';
-import MovieLibrary from './components/MovieLibrary.js';
+import Header from './components/Header';
+import MovieLibrary from './components/MovieLibrary';
+import MovieInfo from './components/MovieInfo';
+
+import movieData from './movieData';
 import './index.scss';
-// import Movie from './components/Movie.js';
 
 class App extends Component {
   constructor() {
     super()
     this.state = {
-      movies: {movieData}
+      movies: {movieData},
+      newMovie: null,
     }
   }
 
-  iAmATest() {
-    return console.log('hi')
+  handleClick = (e) => {
+    let idNum = parseInt(e.target.id);
+
+    let match = this.state.movies.movieData.movies.find(elem => {
+      return elem.id === idNum;
+    });
+
+    this.setState({ newMovie: match }, console.log(this.state.newMovie));
   }
-
-  //handleClick() {
-
-  //}
 
   render() {
     return (
       <div className='main-page'>
         <Header />
-        <MovieLibrary movies={this.state.movies} test={() => this.iAmATest()}/>
+        {!this.state.newMovie && <MovieLibrary movies={this.state.movies} handleClick={this.handleClick}/>}
+        {this.state.newMovie && <MovieInfo movie={this.state.newMovie}/>}
       </div>
     );
   }

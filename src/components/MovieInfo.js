@@ -1,16 +1,6 @@
 import React, { Component } from 'react';
-import flick from '../flicks';
 
-class MovieInfo extends Component {
-  constructor() {
-    super()
-    this.state = {
-      newMovie: {flick.movie}
-    }
-  }
-
-  render() {
-    const movie = this.state.newMovie;
+function MovieInfo({movie}) {
 
     return (
       <section className='movie-info'>
@@ -31,8 +21,8 @@ class MovieInfo extends Component {
           </div>
         </div>
       </section>
-    );
+    )
   }
-}
+
 
 export default MovieInfo;

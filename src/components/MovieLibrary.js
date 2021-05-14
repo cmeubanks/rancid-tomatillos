@@ -1,16 +1,14 @@
 import React from 'react';
 import Card from './Card.js';
 
-function MovieLibrary({movies}) {
+function MovieLibrary({movies, handleClick}) {
     const newCards = movies.movieData.movies.map(film => {
       return (
         <Card
           key={film.id}
-          averageRating={film.average_rating}
-          backdropPath={film.backdrop_path}
+          id={film.id}
           posterPath={film.poster_path}
-          title={film.title}
-          releaseDate={film.release_date}
+          handleClick={handleClick}
         />
       )
     })
@@ -20,7 +18,6 @@ function MovieLibrary({movies}) {
       {newCards}
     </section>
   )
-
 }
 
 export default MovieLibrary;
