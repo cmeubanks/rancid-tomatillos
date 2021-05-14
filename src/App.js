@@ -24,7 +24,7 @@ class App extends Component {
   handleClick = (e) => {
     let idNum = parseInt(e.target.id);
 
-    let match = this.state.movies.movieData.movies.find(elem => {
+    let match = this.state.movies.find(elem => {
       return elem.id === idNum;
     });
 
