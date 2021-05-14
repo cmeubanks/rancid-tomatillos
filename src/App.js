@@ -9,23 +9,21 @@ class App extends Component {
   constructor() {
     super()
     this.state = {
-      movies: {movieData}
+      movies: {movieData},
+      cardId: 0
     }
   }
 
-  iAmATest() {
-    return console.log('hi')
+  handleClick = (event) => {
+    this.setState({ cardId: event.id })
   }
-
-  //handleClick() {
-
-  //}
 
   render() {
     return (
       <div className='main-page'>
         <Header />
-        <MovieLibrary movies={this.state.movies} test={() => this.iAmATest()}/>
+        {!this.state.cardId && <MovieLibrary movies={this.state.movies}/>}
+        
       </div>
     );
   }
