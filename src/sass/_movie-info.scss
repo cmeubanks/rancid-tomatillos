@@ -1,0 +1,36 @@
+.movie-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 800px;
+    background-color: $primary-body;
+}
+
+.title {
+  margin: 2vw;
+  font-size: 4vw;
+  color: $white;
+}
+
+.poster {
+  max-width: 23%;
+  padding-bottom: 1vw;
+
+  img {
+    max-width: 100%;
+    border-radius: 5px;
+    box-shadow: inset 0 -3em 3em rgba(0, 0, 0, 0.1),
+    0.3em 0.3em 0.3em 0.1em rgba(0, 0, 0, 0.2),
+    0.5em 0.5em 0.5em 0.2em rgba(0, 0, 0, 0.2);
+  }
+}
+
+.movie-data {
+  margin: 2vw;
+  color: $white;
+
+  p {
+    margin: 1vw;
+  }
+}
