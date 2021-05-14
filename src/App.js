@@ -1,18 +1,24 @@
 import React, { Component } from 'react';
+import apiCalls from './apiCalls';
 import Header from './components/Header';
 import MovieLibrary from './components/MovieLibrary';
 import MovieInfo from './components/MovieInfo';
 
-import movieData from './movieData.js';
+// import movieData from './movieData.js';
 import './index.scss';
 
 class App extends Component {
   constructor() {
     super()
     this.state = {
-      movies: {movieData},
+      movies: [],
       newMovie: null,
     }
+  }
+
+  componentDidMount = () => {
+    apiCalls.fetchAllMovies()
+      .then(data => this.setState({movies: data.movies}))
   }
 
   handleClick = (e) => {
