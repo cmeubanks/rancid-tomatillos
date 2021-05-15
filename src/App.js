@@ -12,7 +12,7 @@ class App extends Component {
     super()
     this.state = {
       movies: [],
-      newMovie: null,
+      cardID: 0,
     }
   }
 
@@ -22,21 +22,17 @@ class App extends Component {
   }
 
   handleClick = (e) => {
-    let idNum = parseInt(e.target.id);
+    let id = parseInt(e.target.id);
 
-    let match = this.state.movies.find(elem => {
-      return elem.id === idNum;
-    });
-
-    this.setState({ newMovie: match }, console.log(this.state.newMovie));
+    this.setState({ cardID: id });
   }
 
   render() {
     return (
       <div className='main-page'>
         <Header />
-        {!this.state.newMovie && <MovieLibrary movies={this.state.movies} handleClick={this.handleClick}/>}
-        {this.state.newMovie && <MovieInfo movie={this.state.newMovie}/>}
+        {!this.state.cardID && <MovieLibrary movies={this.state.movies} handleClick={this.handleClick}/>}
+        {this.state.cardID && <MovieInfo id={this.state.cardID}/>}
       </div>
     );
   }

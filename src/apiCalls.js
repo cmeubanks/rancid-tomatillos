@@ -4,10 +4,10 @@ const apiCalls = {
     const response = await fetch('https://rancid-tomatillos.herokuapp.com/api/v2/movies');
     const data = await response.json();
     return data;
-  }
+  },
 
-  async fetchAMovie(id) {
-    const response = await fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${id}`);
+  async fetchAMovie() {
+    const response = await fetch('https://rancid-tomatillos.herokuapp.com/api/v2/movies/694919');
     const data = await response.json();
     return data;
   }
