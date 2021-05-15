@@ -2,25 +2,25 @@ import React, { Component } from 'react';
 import apiCalls from '../apiCalls';
 
 class MovieInfo extends Component {
-    constructor(props) {
-      super(props)
-      console.log(props)
+    constructor() {
+      super()
       this.state = {
         movie: null
       }
-      console.log(this.state)
     }
 
     componentDidMount = () => {
       apiCalls.fetchAMovie(this.props.id)
-      .then(data => this.setState({movie: data.movie}))
+      .then(data =>
+        this.setState({movie: data.movie})
+      )
     }
 
     render() {
     if(!this.state.movie){
-      return (<p>Nope</p>)
+      return (<p>Your flick is loading...</p>)
     }
-    
+
     return (
       <section className='movie-info'>
         <h1 className='title'>{this.state.movie.title}</h1>
