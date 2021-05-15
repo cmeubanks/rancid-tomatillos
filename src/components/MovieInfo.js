@@ -11,9 +11,7 @@ class MovieInfo extends Component {
 
     componentDidMount = () => {
       apiCalls.fetchAMovie(this.props.id)
-      .then(data =>
-        this.setState({movie: data.movie})
-      )
+      .then(data => this.setState({movie: data.movie}))
     }
 
     render() {
