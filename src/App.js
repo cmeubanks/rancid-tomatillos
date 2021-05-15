@@ -27,12 +27,16 @@ class App extends Component {
     this.setState({ cardID: id });
   }
 
+  changeDisplay = () => {
+    this.setState( {cardID: 0 });
+  }
+
   render() {
     return (
       <div className='main-page'>
         <Header />
         {!this.state.cardID && <MovieLibrary movies={this.state.movies} handleClick={this.handleClick}/>}
-        {this.state.cardID && <MovieInfo id={this.state.cardID}/>}
+        {this.state.cardID && <MovieInfo id={this.state.cardID} changeDisplay={this.changeDisplay}/>}
       </div>
     );
   }
