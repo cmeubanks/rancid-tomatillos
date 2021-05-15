@@ -47,4 +47,3 @@ class MovieInfo extends Component {
 }
 
 export default MovieInfo;
-//
