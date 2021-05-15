@@ -35,6 +35,7 @@ class MovieInfo extends Component {
             <p className='runtime'>{this.state.movie.runtime}</p>
             <p className='tagline'>{this.state.movie.tagline}</p>
           </div>
+          <button onClick={this.props.changeDisplay}>Return Home</button>
       </section>
     )
   }
