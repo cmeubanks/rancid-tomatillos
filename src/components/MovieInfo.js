@@ -11,12 +11,17 @@ class MovieInfo extends Component {
 
     componentDidMount = () => {
       apiCalls.fetchAMovie(this.props.id)
-      .then(data => this.setState({movie: data.movie}))
+      .then(data => this.setState({ movie: data.movie }))
+      .catch(error => this.setState({ error: error }))
     }
 
     render() {
-    if(!this.state.movie){
+    if(!this.state.movie) {
       return (<p>Your flick is loading...</p>)
+    }
+
+    if(this.state.error) {
+      return (<p>{this.state.error}</p>)
     }
 
     return (
@@ -42,4 +47,3 @@ class MovieInfo extends Component {
 }
 
 export default MovieInfo;
-//

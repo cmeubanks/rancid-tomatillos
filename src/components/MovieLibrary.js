@@ -21,4 +21,3 @@ function MovieLibrary({movies, handleClick}) {
 }
 
 export default MovieLibrary;
-//
