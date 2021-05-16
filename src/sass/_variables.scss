@@ -16,3 +16,8 @@ $white: #F4F4F9;
 // onyx: #313535
 // jet: #2B2E2E
 // charleston green: #262828
+
+// BOX SHADOW
+$shadow-main: inset 0 -3em 3em rgba(0, 0, 0, 0.1),
+    0.3em 0.3em 0.3em 0.1em rgba(0, 0, 0, 0.2),
+    0.5em 0.5em 0.5em 0.2em rgba(0, 0, 0, 0.2);
