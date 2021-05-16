@@ -1,37 +1,100 @@
-.movie-info {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 800px;
-    background-color: $primary-body;
+.movie-info-container {
+  height: 80vh;
+  width: 100vw;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border: 8px solid rgba(0, 0, 0, 0.338);
 }
 
-.title {
-  margin: 2vw;
-  font-size: 4vw;
-  color: $white;
+.movie-info {
+  height: 100%;
+  display: grid;
+  grid-template-columns: 40% 60%;
+}
+
+.movie-info-left {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .poster {
-  max-width: 23%;
-  padding-bottom: 1vw;
+  height: 75%;
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 
   img {
     max-width: 100%;
     border-radius: 5px;
-    box-shadow: inset 0 -3em 3em rgba(0, 0, 0, 0.1),
-    0.3em 0.3em 0.3em 0.1em rgba(0, 0, 0, 0.2),
-    0.5em 0.5em 0.5em 0.2em rgba(0, 0, 0, 0.2);
+    box-shadow: $shadow-main;
+  }
+
+  p {
+    margin-top: 2vw;
+    font-size: 1.2rem;
+    color: $white;
+    // background-color: rgba(37, 33, 33, 0.071);
   }
 }
 
-.movie-data {
-  margin: 2vw;
+.movie-info-right {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
   color: $white;
 
   p {
     margin: 1vw;
   }
+
+  button {
+    width: 11vw;
+    height: 2.5vw;
+    margin-top: 1vw;
+    align-self: center;
+    font-size: 1.2vw;
+    background-color: rgba(28, 52, 62, 0.603);
+    border: 1px solid rgba(1, 2, 2, 0.527);
+    color: rgba(255, 255, 255, 0.845);
+
+    &:hover {
+      background-color: rgba(36, 91, 109, 0.322);
+    }
+  }
 }
-//
+
+.movie-right-wrapper {
+  width: 75%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.movie-info-box {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1vw;
+  padding: 2vw;
+  background-color: rgba(0, 0, 0, 0.623);
+}
+
+.title {
+  margin-top: 1vw;
+  margin-bottom: 1vw;
+  font-size: 4vw;
+  color: $white;
+}
+
+.overview {
+  font-style: italic;
+}
