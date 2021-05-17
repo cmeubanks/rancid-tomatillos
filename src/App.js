@@ -33,7 +33,7 @@ class App extends Component {
     return (
       <div className='main-page'>
         <Header />
-        {this.state.error && <p>{this.state.error}</p>}
+        {this.state.error && <p className='error-message'>{this.state.error}</p>}
         {!this.state.cardID && <MovieLibrary movies={this.state.movies} handleClick={this.handleClick}/>}
         {this.state.cardID && <MovieInfo id={this.state.cardID} changeDisplay={this.changeDisplay}/>}
       </div>
