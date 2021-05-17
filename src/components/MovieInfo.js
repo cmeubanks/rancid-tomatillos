@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import apiCalls from '../apiCalls';
-var dayjs = require('dayjs')
+var dayjs = require('dayjs');
+// var duration = require('dayjs/plugin/duration');
+// dayjs.extend(duration);
+
 
 class MovieInfo extends Component {
     constructor() {
@@ -22,6 +25,11 @@ class MovieInfo extends Component {
         currency: 'USD',
       })
       return formatter.format(amount);
+    }
+
+    displayGenres(genres) {
+      const list = genres.join(', ')
+      return list
     }
 
     render() {
@@ -48,9 +56,9 @@ class MovieInfo extends Component {
                 <h1 className='title'>{this.state.movie.title}</h1>
                 <p className='release-date'>Release Date: {dayjs(this.state.movie.release_date).format('MMMM D, YYYY')}</p>
                 <p className='overview'>{this.state.movie.overview}</p>
-                <p className='runtime'>{dayjs(this.state.movie.runtime).format('HH-MM')} minutes</p>
+                <p className='runtime'>{this.state.movie.runtime} minutes</p>
                 <p className='avg-rating'>Average Rating: {this.state.movie.average_rating}</p>
-                <p className='genres'>Genre: {this.state.movie.genres}</p>
+                <p className='genres'>Genre: {this.displayGenres(this.state.movie.genres)}</p>
                 <p className='budget'>Budget: {this.convertDollarAmount(this.state.movie.budget)}</p>
                 <p className='revenue'>Revenue: {this.convertDollarAmount(this.state.movie.revenue)}</p>
               </div>
