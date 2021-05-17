@@ -16,6 +16,14 @@ class MovieInfo extends Component {
       .catch(error => this.setState({ error: error }))
     }
 
+    convertDollarAmount(amount) {
+      let formatter = new Intl.NumberFormat('en-US', {
+        style: 'currency',
+        currency: 'USD',
+      })
+      return formatter.format(amount);
+    }
+
     render() {
     if(!this.state.movie) {
       return (<p>Your flick is loading...</p>)
@@ -40,11 +48,11 @@ class MovieInfo extends Component {
                 <h1 className='title'>{this.state.movie.title}</h1>
                 <p className='release-date'>Release Date: {dayjs(this.state.movie.release_date).format('MMMM D, YYYY')}</p>
                 <p className='overview'>{this.state.movie.overview}</p>
-                <p className='runtime'>{this.state.movie.runtime} minutes</p>
+                <p className='runtime'>{dayjs(this.state.movie.runtime).format('HH-MM')} minutes</p>
                 <p className='avg-rating'>Average Rating: {this.state.movie.average_rating}</p>
                 <p className='genres'>Genre: {this.state.movie.genres}</p>
-                <p className='budget'>Budget: {this.state.movie.budget}</p>
-                <p className='revenue'>Revenue: {this.state.movie.revenue}</p>
+                <p className='budget'>Budget: {this.convertDollarAmount(this.state.movie.budget)}</p>
+                <p className='revenue'>Revenue: {this.convertDollarAmount(this.state.movie.revenue)}</p>
               </div>
               <button onClick={this.props.changeDisplay}>Return Home</button>
             </div>
