@@ -20,8 +20,7 @@ class App extends Component {
       .catch(error => this.setState( {error: error}))
   }
 
-  handleClick = (e) => {
-    let id = parseInt(e.target.id);
+  handleClick = (e) => {    let id = parseInt(e.target.id);
 
     this.setState({ cardID: id });
   }

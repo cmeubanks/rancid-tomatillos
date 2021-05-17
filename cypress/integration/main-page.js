@@ -1,15 +1,20 @@
-// As a user, when I visit the app, all movies should be displayed
-//
-// Acceptance Criteria:
-//
-// When I load the page using the home URL, the page automatically renders a header displaying the site title, and a "movie library" below populated with movie posters for all elements in the movies API.
-// If the API data rendering isn't immediately visible, I can see a temporary "Page Loading" view in its place.
-
 describe('Main', () => {
-  it('Should render the main page', () => {
-    cy.visit('http://localhost:3000');
+
+  before(() => {
+    cy.fixture('../fixtures/movies-data.json')
+      .then((movies) => {
+      cy.intercept('https://rancid-tomatillos.herokuapp.com/api/v2/movies', {
+        body: movies,
+        statusCode: 200,
+      });
+    });
   });
 
+  it('Should render the main page', () => {
+    cy.visit('http://localhost:3000')
+    .get('h1').contains('Rancid Tomatillos')
+    .get('#694919')
+    .get('img').should('have.attr', 'src', 'https://image.tmdb.org/t/p/original//6CoRTJTmijhBLJTUNoVSUNxZMEI.jpg')
+  });
 
-  
 });
