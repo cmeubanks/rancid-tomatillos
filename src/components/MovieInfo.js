@@ -24,7 +24,13 @@ class MovieInfo extends Component {
         style: 'currency',
         currency: 'USD',
       })
-      return formatter.format(amount);
+      const dollarAmt = formatter.format(amount);
+
+      if(dollarAmt === '$0.00') {
+        return 'This information is unavailable'
+        } else {
+          return dollarAmt
+        }
     }
 
     displayGenres(genres) {
@@ -40,7 +46,7 @@ class MovieInfo extends Component {
     if(this.state.error) {
       return (<p>{this.state.error}</p>)
     }
-
+     console.log(this.state.movie.revenue)
     return (
       <section className='movie-info-container' style={{ backgroundImage: `url(${this.state.movie.backdrop_path})`}}>
         <div className='movie-info'>
@@ -57,7 +63,7 @@ class MovieInfo extends Component {
                 <p className='release-date'>Release Date: {dayjs(this.state.movie.release_date).format('MMMM D, YYYY')}</p>
                 <p className='overview'>{this.state.movie.overview}</p>
                 <p className='runtime'>{this.state.movie.runtime} minutes</p>
-                <p className='avg-rating'>Average Rating: {this.state.movie.average_rating}</p>
+                <p className='avg-rating'>Average Rating: {Math.round(this.state.movie.average_rating)}</p>
                 <p className='genres'>Genre: {this.displayGenres(this.state.movie.genres)}</p>
                 <p className='budget'>Budget: {this.convertDollarAmount(this.state.movie.budget)}</p>
                 <p className='revenue'>Revenue: {this.convertDollarAmount(this.state.movie.revenue)}</p>
