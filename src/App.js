@@ -30,10 +30,14 @@ class App extends Component {
   }
 
   render() {
+    if(this.state.error){
+      console.log(this.state.error)
+      return <h2 className='error-message'>Uh Oh, Something Went Wrong</h2>
+    }
+
     return (
       <div className='main-page'>
         <Header />
-        {this.state.error && <p className='error-message'>{this.state.error}</p>}
         {!this.state.cardID && <MovieLibrary movies={this.state.movies} handleClick={this.handleClick}/>}
         {this.state.cardID && <MovieInfo id={this.state.cardID} changeDisplay={this.changeDisplay}/>}
       </div>

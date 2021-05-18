@@ -11,3 +11,12 @@ html {
 .main-page {
   min-height: 100vh;
 }
+
+.error-message {
+  color: $primary-accent;
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  margin-top: 25%;
+}
