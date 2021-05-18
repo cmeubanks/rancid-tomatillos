@@ -4,6 +4,7 @@ import Header from './components/Header';
 import MovieLibrary from './components/MovieLibrary';
 import MovieInfo from './components/MovieInfo';
 import './index.scss';
+import { Route } from 'react-router-dom';
 
 class App extends Component {
   constructor() {
@@ -20,8 +21,8 @@ class App extends Component {
       .catch(error => this.setState( {error: error}))
   }
 
-  handleClick = (e) => {    let id = parseInt(e.target.id);
-
+  handleClick = (e) => {
+    let id = parseInt(e.target.id);
     this.setState({ cardID: id });
   }
 
@@ -38,8 +39,13 @@ class App extends Component {
     return (
       <div className='main-page'>
         <Header />
-        {!this.state.cardID && <MovieLibrary movies={this.state.movies} handleClick={this.handleClick}/>}
-        {this.state.cardID && <MovieInfo id={this.state.cardID} changeDisplay={this.changeDisplay}/>}
+        <Route exact path='/:id' render={() =>
+          <MovieInfo id={this.state.cardID} changeDisplay={this.changeDisplay}/>
+        }/>
+        <Route exact path='/' render={() =>
+          <MovieLibrary movies={this.state.movies} handleClick={this.handleClick}/>
+        }/>
+
       </div>
     );
   }
