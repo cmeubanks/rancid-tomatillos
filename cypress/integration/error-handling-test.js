@@ -2,17 +2,16 @@ describe('Error Handling', () => {
 
   before(() => {
     cy.fixture('../fixtures/movies-data.json')
-    .then((movies) => {
+      .then((movies) => {
       cy.intercept('https://rancid-tomatillos.herokuapp.com/api/v2/movies', {
         statusCode: 500,
-        body: movies
       })
     })
   });
 
   it('Should display an error message when server is down', () => {
     cy.visit('http://localhost:3000/')
-    .get('.error-message')
+      .get('.error-message')
   })
 
 });

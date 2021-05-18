@@ -12,9 +12,9 @@ describe('Main', () => {
 
   it('Should render the main page', () => {
     cy.visit('http://localhost:3000')
-    .get('h1').contains('Rancid Tomatillos')
-    .get('#694919')
-    .get('img').should('have.attr', 'src', 'https://image.tmdb.org/t/p/original//6CoRTJTmijhBLJTUNoVSUNxZMEI.jpg')
+      .get('h1').contains('Rancid Tomatillos')
+      .get('#694919')
+      .get('img').should('have.attr', 'src', 'https://image.tmdb.org/t/p/original//6CoRTJTmijhBLJTUNoVSUNxZMEI.jpg')
   });
 
 });
