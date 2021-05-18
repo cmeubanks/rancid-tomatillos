@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { NavLink } from 'react-router-dom';
 import apiCalls from '../apiCalls';
 var dayjs = require('dayjs');
 // var duration = require('dayjs/plugin/duration');
@@ -46,7 +47,7 @@ class MovieInfo extends Component {
     if(this.state.error) {
       return (<p>{this.state.error}</p>)
     }
-     console.log(this.state.movie.revenue)
+  
     return (
       <section className='movie-info-container' style={{ backgroundImage: `url(${this.state.movie.backdrop_path})`}}>
         <div className='movie-info'>
@@ -68,7 +69,7 @@ class MovieInfo extends Component {
                 <p className='budget'>Budget: {this.convertDollarAmount(this.state.movie.budget)}</p>
                 <p className='revenue'>Revenue: {this.convertDollarAmount(this.state.movie.revenue)}</p>
               </div>
-              <button onClick={this.props.changeDisplay}>Return Home</button>
+              <NavLink exact to='/'> <button onClick={this.props.changeDisplay}>Return Home</button> </NavLink>
             </div>
           </div>
         </div>
