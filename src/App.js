@@ -4,7 +4,7 @@ import Header from './components/Header';
 import MovieLibrary from './components/MovieLibrary';
 import MovieInfo from './components/MovieInfo';
 import './index.scss';
-import { Route, Switch, Redirect } from 'react-router-dom';
+import { Route, Redirect } from 'react-router-dom';
 
 class App extends Component {
   constructor() {
@@ -39,7 +39,6 @@ class App extends Component {
     return (
       <div className='main-page'>
         <Header />
-        <Switch>
           <Route path='/:id' render={({ match }) => {
             const isMovieID = this.state.movies.find(movie => movie.id === parseInt(match.params.id));
             return isMovieID ? (
@@ -51,8 +50,6 @@ class App extends Component {
           <Route exact path='/' render={() =>
             <MovieLibrary movies={this.state.movies} handleClick={this.handleClick}/>
           }/>
-        </Switch>
-
       </div>
     );
   }
