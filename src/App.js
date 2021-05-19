@@ -17,8 +17,8 @@ class App extends Component {
 
   componentDidMount = () => {
     apiCalls.fetchAllMovies()
-      .then(data => this.setState({movies: data.movies}))
-      .catch(error => this.setState( {error: error}))
+      .then(data => this.setState({ movies: data.movies }))
+      .catch(error => this.setState( { error: error }))
   }
 
   handleClick = (e) => {
@@ -27,7 +27,7 @@ class App extends Component {
   }
 
   changeDisplay = () => {
-    this.setState( {cardID: 0 });
+    this.setState( { cardID: 0 });
   }
 
   render() {
@@ -39,8 +39,8 @@ class App extends Component {
     return (
       <div className='main-page'>
         <Header />
-        <Route exact path='/:id' render={() =>
-          <MovieInfo id={this.state.cardID} changeDisplay={this.changeDisplay}/>
+        <Route exact path='/:id' render={({ match }) =>
+          <MovieInfo id={match.params.id} changeDisplay={this.changeDisplay}/>
         }/>
         <Route exact path='/' render={() =>
           <MovieLibrary movies={this.state.movies} handleClick={this.handleClick}/>
