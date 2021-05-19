@@ -7,47 +7,47 @@ var dayjs = require('dayjs');
 
 
 class MovieInfo extends Component {
-    constructor() {
-      super()
-      this.state = {
-        movie: null
-      }
+  constructor(props) {
+    super(props)
+    this.state = {
+      movie: null
     }
+  }
 
-    componentDidMount = () => {
-      apiCalls.fetchAMovie(this.props.id)
+  componentDidMount = () => {
+    apiCalls.fetchAMovie(this.props.id)
       .then(data => this.setState({ movie: data.movie }))
       .catch(error => this.setState({ error: error }))
-    }
+  }
 
-    convertDollarAmount(amount) {
-      let formatter = new Intl.NumberFormat('en-US', {
-        style: 'currency',
-        currency: 'USD',
-      })
-      const dollarAmt = formatter.format(amount);
+  convertDollarAmount(amount) {
+    let formatter = new Intl.NumberFormat('en-US', {
+      style: 'currency',
+      currency: 'USD',
+    })
+    const dollarAmt = formatter.format(amount);
 
-      if(dollarAmt === '$0.00') {
-        return 'This information is unavailable'
-        } else {
-          return dollarAmt
-        }
-    }
+    if (dollarAmt === '$0.00') {
+      return 'This information is unavailable'
+      } else {
+        return dollarAmt;
+      }
+  }
 
-    displayGenres(genres) {
-      const list = genres.join(', ')
-      return list
-    }
+  displayGenres(genres) {
+    const list = genres.join(', ')
+    return list;
+  }
 
-    render() {
-    if(!this.state.movie) {
+  render() {
+    if (!this.state.movie) {
       return (<p>Your flick is loading...</p>)
     }
 
-    if(this.state.error) {
+    if (this.state.error) {
       return (<p>{this.state.error}</p>)
     }
-  
+
     return (
       <section className='movie-info-container' style={{ backgroundImage: `url(${this.state.movie.backdrop_path})`}}>
         <div className='movie-info'>
