@@ -4,7 +4,7 @@ import Header from './components/Header';
 import MovieLibrary from './components/MovieLibrary';
 import MovieInfo from './components/MovieInfo';
 import './index.scss';
-import { Route } from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
 
 class App extends Component {
   constructor() {
@@ -27,11 +27,11 @@ class App extends Component {
   }
 
   changeDisplay = () => {
-    this.setState( { cardID: 0 });
+    this.setState({ cardID: 0 });
   }
 
   render() {
-    if(this.state.error){
+    if (this.state.error){
       console.log(this.state.error)
       return <h2 className='error-message'>Uh Oh, Something Went Wrong</h2>
     }
@@ -39,12 +39,19 @@ class App extends Component {
     return (
       <div className='main-page'>
         <Header />
-        <Route exact path='/:id' render={({ match }) =>
-          <MovieInfo id={match.params.id} changeDisplay={this.changeDisplay}/>
-        }/>
-        <Route exact path='/' render={() =>
-          <MovieLibrary movies={this.state.movies} handleClick={this.handleClick}/>
-        }/>
+        <Switch>
+          <Route path='/:id' render={({ match }) => {
+            const isMovieID = this.state.movies.find(movie => movie.id === parseInt(match.params.id));
+            return isMovieID ? (
+              <MovieInfo id={match.params.id} changeDisplay={this.changeDisplay}/>
+            ) : (
+              <Redirect to='/' />
+            )
+          }}/>
+          <Route exact path='/' render={() =>
+            <MovieLibrary movies={this.state.movies} handleClick={this.handleClick}/>
+          }/>
+        </Switch>
 
       </div>
     );
