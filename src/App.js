@@ -44,7 +44,7 @@ class App extends Component {
             return isMovieID ? (
               <MovieInfo id={match.params.id} changeDisplay={this.changeDisplay}/>
             ) : (
-              <Redirect to='/' />
+              <Redirect to='/'/>
             )
           }}/>
           <Route exact path='/' render={() =>
