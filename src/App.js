@@ -4,13 +4,13 @@ import Header from './components/Header';
 import MovieLibrary from './components/MovieLibrary';
 import MovieInfo from './components/MovieInfo';
 import './index.scss';
-import { Route } from 'react-router-dom';
+import { Route, Redirect } from 'react-router-dom';
 
 class App extends Component {
   constructor() {
     super()
     this.state = {
-      movies: [],
+      movies: null,
       cardID: 0,
     }
   }
@@ -27,25 +27,33 @@ class App extends Component {
   }
 
   changeDisplay = () => {
-    this.setState( { cardID: 0 });
+    this.setState({ cardID: 0 });
   }
 
   render() {
-    if(this.state.error){
+    if (this.state.error) {
       console.log(this.state.error)
       return <h2 className='error-message'>Uh Oh, Something Went Wrong</h2>
     }
 
+    if (!this.state.error && !this.state.movies) {
+      return <h2 className='error-message'>Page loading...</h2>
+    }
+
     return (
       <div className='main-page'>
-        <Header />
-        <Route exact path='/:id' render={({ match }) =>
+      <Header />
+      <Route path='/:id' render={({ match }) => {
+        const isMovieID = this.state.movies.find(movie => movie.id === parseInt(match.params.id));
+        return isMovieID ? (
           <MovieInfo id={match.params.id} changeDisplay={this.changeDisplay}/>
-        }/>
-        <Route exact path='/' render={() =>
-          <MovieLibrary movies={this.state.movies} handleClick={this.handleClick}/>
-        }/>
-
+        ) : (
+          <Redirect to='/'/>
+        )
+      }}/>
+      <Route exact path='/' render={() =>
+        <MovieLibrary movies={this.state.movies} handleClick={this.handleClick, console.log("MOVIE LIBRARY STATE: ", this.state)}/>
+      }/>
       </div>
     );
   }
