@@ -1,7 +1,6 @@
 describe('Main', () => {
 
   before(() => {
-    // cy.visit('http://localhost:3000')
     cy.fixture('../fixtures/movies-data.json')
       .then((movies) => {
       cy.intercept('https://rancid-tomatillos.herokuapp.com/api/v2/movies', {
