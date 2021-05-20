@@ -33,11 +33,11 @@ class App extends Component {
   render() {
     if (this.state.error) {
       console.log(this.state.error)
-      return <h2 className='error-message'>Uh Oh, Something Went Wrong</h2>
+      return <h2 className='message'>Uh Oh, Something Went Wrong 🎭</h2>
     }
 
     if (!this.state.error && !this.state.movies) {
-      return <h2 className='error-message'>Page loading...</h2>
+      return <h2 className='message'>Page Loading 🍿</h2>
     }
 
     return (

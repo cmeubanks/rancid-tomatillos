@@ -41,7 +41,7 @@ class MovieInfo extends Component {
 
   render() {
     if (!this.state.movie) {
-      return (<p>Your flick is loading...</p>)
+      return <h2 className='message'>Page Loading 🍿</h2>
     }
 
     if (this.state.error) {
