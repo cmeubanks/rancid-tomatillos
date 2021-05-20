@@ -5,7 +5,6 @@ var dayjs = require('dayjs');
 // var duration = require('dayjs/plugin/duration');
 // dayjs.extend(duration);
 
-
 class MovieInfo extends Component {
   constructor(props) {
     super(props)
@@ -49,7 +48,7 @@ class MovieInfo extends Component {
     }
 
     return (
-      <section className='movie-info-container' style={{ backgroundImage: `url(${this.state.movie.backdrop_path})`}}>
+      <section className='movie-info-container' style={{ backgroundImage: `url(${this.state.movie.backdrop_path})`}} alt='movie still backround'>
         <div className='movie-info'>
           <div className='movie-info-left'>
             <div className='poster'>
