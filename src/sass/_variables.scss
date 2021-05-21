@@ -1,6 +1,7 @@
 // COLORS
 
 $ghost-white: #F4F4F9;
+$opaque-white: rgba(255, 255, 255, 0.845);
 
 $dark-electric-blue: #586F7C;
 $middle-blue: #80CEE1;
@@ -15,12 +16,18 @@ $eerie-black: #212121;
 
 // BASIC
 $white: #fff;
+$black: #000000;
 $red: #FF1F09;
 $blue: #228DFF;
 $yellow: #FFDD1B;
 $green: #B6FF00;
 $orange: #FF9900;
 $violet: #ff00de;
+
+// CONTAINER BACKGROUND
+
+$opaque-light: rgba(36, 91, 109, 0.322);
+$opaque-dark: rgba(0, 0, 0, 0.623);
 
 // BOX SHADOW
 $shadow-main: inset 0 -3em 3em rgba(0, 0, 0, 0),
@@ -33,3 +40,4 @@ $limelight: 'Limelight', cursive;
 $vampiro: 'Vampiro One', cursive;
 $monoton: 'Monoton', cursive;
 $marker: 'Permanent Marker', cursive;
+$roboto: 'Roboto', sans-serif;
