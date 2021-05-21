@@ -11,7 +11,7 @@ describe('Error Handling', () => {
 
   it('Should display an error message when server is down', () => {
     cy.visit('http://localhost:3000/')
-      .get('.error-message')
+      .get('.message')
   })
 
 });

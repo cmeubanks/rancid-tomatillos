@@ -12,6 +12,7 @@ describe('Main', () => {
   });
 
   it('Should display a loading page while fetching movie data', () => {
+    cy.visit('http://localhost:3000')
     cy.get('.message').should('contain', 'Page Loading 🍿')
       .should('be.visible')
   });
