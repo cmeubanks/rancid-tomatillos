@@ -20,14 +20,14 @@ describe('Movie Info', () => {
     cy.get('.title').contains('Money Plane')
       .get('img').should('have.attr', 'src', 'https://image.tmdb.org/t/p/original//6CoRTJTmijhBLJTUNoVSUNxZMEI.jpg')
       .get('section').should('have.css', 'background-image', 'url("https://image.tmdb.org/t/p/original//pq0JSpwyT2URytdFG0euztQPAyR.jpg")')
-      .get('.release-date').contains('2020-09-29')
+      .get('.release-date').contains('September 29, 2020')
       .get('.overview').contains('A professional thief')
       .get('.genres').contains('Action')
-      .get('.budget').eq(0)
-      .get('.revenue').eq(0)
-      .get('.runtime').eq(82)
-      .get('.tagline').eq("")
-      .get('.avg-rating').eq(6.142857142857143)
+      .get('.budget').contains('This information is unavailable')
+      .get('.revenue').contains('This information is unavailable')
+      .get('.runtime').contains(82)
+      .get('.tagline').eq('')
+      .get('.avg-rating').contains(6)
   });
 
   it('Should go back to the main page view when the Return Home button is clicked', () => {
