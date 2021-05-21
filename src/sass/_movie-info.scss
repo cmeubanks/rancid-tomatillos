@@ -3,7 +3,7 @@
   width: 100vw;
   background-repeat: no-repeat;
   background-size: cover;
-  border: 8px solid rgba(0, 0, 0, 0.338);
+  border-bottom: 6px solid $charleston-green;
 }
 
 .movie-info {
@@ -35,9 +35,9 @@
 
   p {
     margin-top: 2vw;
-    font-size: 1.2rem;
-    color: $white;
-    // background-color: rgba(37, 33, 33, 0.071);
+    font-size: 1.1rem;
+    color: $ghost-white;
+    text-shadow: 0px 2px $eerie-black;
   }
 }
 
@@ -47,7 +47,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  color: $white;
+  color: $ghost-white;
 
   p {
     margin: 1vw;
@@ -56,15 +56,18 @@
   button {
     width: 11vw;
     height: 2.5vw;
-    margin-top: 1vw;
+    margin-top: 3vw;
     align-self: center;
-    font-size: 1.2vw;
-    background-color: rgba(28, 52, 62, 0.603);
-    border: 1px solid rgba(1, 2, 2, 0.527);
-    color: rgba(255, 255, 255, 0.845);
+    font-size: 1.1vw;
+    font-family: $roboto;
+    background-color: $opaque-dark;
+    border: 1px solid $eerie-black;
+    color: $opaque-white;
 
     &:hover {
-      background-color: rgba(36, 91, 109, 0.322);
+      background-color: $opaque-light;
+      border: 1px solid $black;
+      color: $ghost-white;
     }
   }
 }
@@ -85,16 +88,17 @@
   align-items: center;
   margin-top: 1vw;
   padding: 2vw;
-  background-color: rgba(0, 0, 0, 0.623);
+  background-color: $opaque-dark;
 }
 
 .title {
   margin-top: 1vw;
   margin-bottom: 1vw;
   font-size: 4vw;
-  color: $white;
+  color: $ghost-white;
 }
 
 .overview {
   font-style: italic;
+  text-align: center;
 }

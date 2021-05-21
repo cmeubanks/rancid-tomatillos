@@ -1,23 +1,43 @@
 // COLORS
 
-// charcoal
-$primary-background: #2F4550;
-// eerie black
-$primary-body: #212121;
-// middle blue
-$primary-accent: #80CEE1;
-// dark electric blue
-$secondary-accent: #586F7C;
+$ghost-white: #F4F4F9;
+$opaque-white: rgba(255, 255, 255, 0.845);
 
-// ghost white
-$white: #F4F4F9;
+$dark-electric-blue: #586F7C;
+$middle-blue: #80CEE1;
+$deep-sky-blue: #00BFFF;
 
-// steel teal: #598285
-// onyx: #313535
-// jet: #2B2E2E
-// charleston green: #262828
+$steel-teal: #598285;
+$charcoal: #2F4550;
+$charleston-green: #262828;
+$onyx: #313535;
+$jet: #2B2E2E;
+$eerie-black: #212121;
+
+// BASIC
+$white: #fff;
+$black: #000000;
+$red: #FF1F09;
+$blue: #228DFF;
+$yellow: #FFDD1B;
+$green: #B6FF00;
+$orange: #FF9900;
+$violet: #ff00de;
+
+// CONTAINER BACKGROUND
+
+$opaque-light: rgba(36, 91, 109, 0.322);
+$opaque-dark: rgba(0, 0, 0, 0.623);
 
 // BOX SHADOW
-$shadow-main: inset 0 -3em 3em rgba(0, 0, 0, 0.1),
+$shadow-main: inset 0 -3em 3em rgba(0, 0, 0, 0),
     0.3em 0.3em 0.3em 0.1em rgba(0, 0, 0, 0.2),
     0.5em 0.5em 0.5em 0.2em rgba(0, 0, 0, 0.2);
+
+// FONTS
+
+$limelight: 'Limelight', cursive;
+$vampiro: 'Vampiro One', cursive;
+$monoton: 'Monoton', cursive;
+$marker: 'Permanent Marker', cursive;
+$roboto: 'Roboto', sans-serif;

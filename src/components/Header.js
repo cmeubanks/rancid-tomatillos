@@ -4,7 +4,7 @@ function Header() {
 
   return (
     <nav className='navbar'>
-      <h1>Rancid Tomatillos</h1>
+      <h1 className='glow-effect'>Rancid Tomatillos</h1>
     </nav>
   )
 }

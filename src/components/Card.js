@@ -5,7 +5,7 @@ function Card({ id, test, posterPath, handleClick }) {
 
   return (
     <Link to={`/${id}`} className='link-container'>
-      <article onClick={handleClick} className='movie-card'>
+      <article onClick={handleClick} className='movie-card grow'>
         <img id={id} src={posterPath} alt='movie poster'/>
       </article>
     </Link>
