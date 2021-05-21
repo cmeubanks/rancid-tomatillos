@@ -3,7 +3,6 @@
   width: 100vw;
   background-repeat: no-repeat;
   background-size: cover;
-  border: 8px solid rgba(0, 0, 0, 0.338);
 }
 
 .movie-info {
@@ -36,7 +35,7 @@
   p {
     margin-top: 2vw;
     font-size: 1.2rem;
-    color: $white;
+    color: $ghost-white;
     // background-color: rgba(37, 33, 33, 0.071);
   }
 }
@@ -47,7 +46,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  color: $white;
+  color: $ghost-white;
 
   p {
     margin: 1vw;
@@ -92,7 +91,7 @@
   margin-top: 1vw;
   margin-bottom: 1vw;
   font-size: 4vw;
-  color: $white;
+  color: $ghost-white;
 }
 
 .overview {
