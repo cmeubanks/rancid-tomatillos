@@ -20,7 +20,7 @@ describe('Movie Info', () => {
   it('Should render the movie info display', () => {
     cy.get('.title').contains('Money Plane')
       .get('img').should('have.attr', 'src', 'https://image.tmdb.org/t/p/original//6CoRTJTmijhBLJTUNoVSUNxZMEI.jpg')
-      .get()
+      .get('')
   });
 
 });

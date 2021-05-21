@@ -35,4 +35,14 @@ describe('Main', () => {
     cy.url().should('eq', 'http://localhost:3000/')
   });
 
+  it('Should be able to click a movie poster', () => {
+    cy.get('.movie-card').click()
+    cy.fixture('../fixtures/single-movie-data.json')
+      .then((movie) => {
+      cy.intercept('https://rancid-tomatillos.herokuapp.com/api/v2/movies/694919', {
+        body: movie,
+        statusCode: 200,
+      });
+    });
+  });
 });
