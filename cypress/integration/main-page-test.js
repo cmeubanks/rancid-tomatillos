@@ -3,9 +3,9 @@ describe('Main', () => {
   before(() => {
     cy.fixture('../fixtures/movies-data.json')
       .then((movies) => {
-      cy.intercept('https://rancid-tomatillos.herokuapp.com/api/v2/movies', {
-        body: movies,
-        statusCode: 200,
+        cy.intercept('https://rancid-tomatillos.herokuapp.com/api/v2/movies', {
+          body: movies,
+          statusCode: 200,
       });
     });
     cy.visit('http://localhost:3000')
@@ -35,15 +35,33 @@ describe('Main', () => {
   it('Should display correct path on page load', () => {
     cy.url().should('eq', 'http://localhost:3000/')
   });
+});
+
+describe('Main-Click', () => {
 
   it('Should be able to click a movie poster', () => {
-    cy.get('.movie-card').click()
+    cy.fixture('../fixtures/movies-data.json')
+      .then((movies) => {
+        cy.intercept('https://rancid-tomatillos.herokuapp.com/api/v2/movies', {
+          body: movies,
+          statusCode: 200,
+        });
+        cy.visit('http://localhost:3000')
+      });
+
+      // .get('.message').should('contain', 'Page Loading 🍿')
+
     cy.fixture('../fixtures/single-movie-data.json')
       .then((movie) => {
-      cy.intercept('https://rancid-tomatillos.herokuapp.com/api/v2/movies/694919', {
-        body: movie,
-        statusCode: 200,
-      });
+        cy.intercept('https://rancid-tomatillos.herokuapp.com/api/v2/movies/694919', {
+          body: movie,
+          statusCode: 200,
+        });
     });
+
+    cy.visit('http://localhost:3000/694919')
+    cy.get('.movie-card').click()
+    cy.get('.message').should('contain', 'Page Loading 🍿')
   });
+
 });

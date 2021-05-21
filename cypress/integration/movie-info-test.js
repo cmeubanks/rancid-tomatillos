@@ -31,13 +31,14 @@ describe('Movie Info', () => {
   });
 
   it('Should go back to the main page view when the Return Home button is clicked', () => {
+    cy.get('button').click()
     cy.fixture('../fixtures/movies-data.json')
     .then((movies) => {
       cy.intercept('https://rancid-tomatillos.herokuapp.com/api/v2/movies', {
         body: movies,
         statusCode: 200,
       });
-    cy.get('button').click()
+      cy.visit('http://localhost:3000')
     });
   });
 
