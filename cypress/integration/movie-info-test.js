@@ -16,11 +16,29 @@ describe('Movie Info', () => {
       .should('be.visible')
   });
 
-
   it('Should render the movie info display', () => {
     cy.get('.title').contains('Money Plane')
       .get('img').should('have.attr', 'src', 'https://image.tmdb.org/t/p/original//6CoRTJTmijhBLJTUNoVSUNxZMEI.jpg')
-      .get('')
+      .get('section').should('have.css', 'background-image', 'url("https://image.tmdb.org/t/p/original//pq0JSpwyT2URytdFG0euztQPAyR.jpg")')
+      .get('.release-date').contains('2020-09-29')
+      .get('.overview').contains('A professional thief')
+      .get('.genres').contains('Action')
+      .get('.budget').eq(0)
+      .get('.revenue').eq(0)
+      .get('.runtime').eq(82)
+      .get('.tagline').eq("")
+      .get('.avg-rating').eq(6.142857142857143)
+  });
+
+  it('Should go back to the main page view when the Return Home button is clicked', () => {
+    cy.fixture('../fixtures/movies-data.json')
+    .then((movies) => {
+      cy.intercept('https://rancid-tomatillos.herokuapp.com/api/v2/movies', {
+        body: movies,
+        statusCode: 200,
+      });
+    cy.get('button').click()
+    });
   });
 
 });
