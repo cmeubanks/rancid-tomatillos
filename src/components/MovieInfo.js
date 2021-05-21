@@ -41,7 +41,7 @@ class MovieInfo extends Component {
 
   render() {
     if (!this.state.movie) {
-      return (<p>Your flick is loading...</p>)
+      return <h2 className='message'>Page Loading 🍿</h2>
     }
 
     if (this.state.error) {
@@ -54,7 +54,7 @@ class MovieInfo extends Component {
           <div className='movie-info-left'>
             <div className='poster'>
               <img src={this.state.movie.poster_path} alt='movie poster'/>
-              <p>{this.state.movie.tagline}</p>
+              <p className='tagline'>{this.state.movie.tagline}</p>
             </div>
           </div>
           <div className='movie-info-right'>
