@@ -17,9 +17,23 @@ class App extends Component {
 
   componentDidMount = () => {
     apiCalls.fetchAllMovies()
-      .then(data => this.setState({ movies: data.movies }))
+      .then(data => {
+        this.setState({ movies: this.cleanData(data)})
+      })
       .catch(error => this.setState( { error: error }))
   }
+
+
+  cleanData = (data) => {
+    return data.movies.map(movie => {
+      return {
+        id: movie.id,
+        poster_path: movie.poster_path
+      }
+    })
+
+  }
+
 
   handleClick = (e) => {
     let id = parseInt(e.target.id);
@@ -52,7 +66,7 @@ class App extends Component {
         )
       }}/>
       <Route exact path='/' render={() =>
-        <MovieLibrary movies={this.state.movies} handleClick={this.handleClick, console.log("MOVIE LIBRARY STATE: ", this.state)}/>
+        <MovieLibrary movies={this.state.movies} handleClick={this.handleClick}/>
       }/>
       </div>
     );
