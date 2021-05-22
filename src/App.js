@@ -52,7 +52,7 @@ class App extends Component {
         )
       }}/>
       <Route exact path='/' render={() =>
-        <MovieLibrary movies={this.state.movies} handleClick={this.handleClick, console.log("MOVIE LIBRARY STATE: ", this.state)}/>
+        <MovieLibrary movies={this.state.movies} handleClick={this.handleClick}/>
       }/>
       </div>
     );

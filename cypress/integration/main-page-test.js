@@ -1,4 +1,4 @@
-describe('Main', () => {
+describe('Main Display', () => {
 
   before(() => {
     cy.fixture('../fixtures/movies-data.json')
@@ -6,14 +6,14 @@ describe('Main', () => {
         cy.intercept('https://rancid-tomatillos.herokuapp.com/api/v2/movies', {
           body: movies,
           statusCode: 200,
+        });
       });
-    });
     cy.visit('http://localhost:3000')
   });
 
   it('Should display a loading page while fetching movie data', () => {
-    cy.visit('http://localhost:3000')
-    cy.get('.message').should('contain', 'Page Loading 🍿')
+    cy.reload()
+      .get('.message').should('contain', 'Page Loading 🍿')
       .should('be.visible')
   });
 
@@ -37,9 +37,10 @@ describe('Main', () => {
   });
 });
 
-describe('Main-Click', () => {
 
-  it('Should be able to click a movie poster', () => {
+describe('Main Click', () => {
+
+  it('Should be able to click a movie poster to go display that movie\'s info', () => {
     cy.fixture('../fixtures/movies-data.json')
       .then((movies) => {
         cy.intercept('https://rancid-tomatillos.herokuapp.com/api/v2/movies', {
@@ -47,9 +48,8 @@ describe('Main-Click', () => {
           statusCode: 200,
         });
         cy.visit('http://localhost:3000')
+          .get('.message').should('contain', 'Page Loading 🍿')
       });
-
-      // .get('.message').should('contain', 'Page Loading 🍿')
 
     cy.fixture('../fixtures/single-movie-data.json')
       .then((movie) => {
@@ -57,11 +57,9 @@ describe('Main-Click', () => {
           body: movie,
           statusCode: 200,
         });
+        cy.get('.movie-card').click()
+          .url().should('eq', 'http://localhost:3000/694919')
     });
-
-    cy.visit('http://localhost:3000/694919')
-    cy.get('.movie-card').click()
-    cy.get('.message').should('contain', 'Page Loading 🍿')
   });
 
 });
