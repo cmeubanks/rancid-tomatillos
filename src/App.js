@@ -41,6 +41,15 @@ class App extends Component {
     this.setState({ cardID: 0 });
   }
 
+  displayChosenCard = (match) => {
+    const isMovieID = this.state.movies.find(movie => movie.id === parseInt(match.params.id));
+    return isMovieID ? (
+      <MovieInfo id={match.params.id} changeDisplay={this.changeDisplay}/>
+    ) : (
+      <Redirect to='/'/>
+    )
+  }
+
   render() {
     if (this.state.error) {
       console.log(this.state.error)
@@ -54,14 +63,7 @@ class App extends Component {
     return (
       <div className='main-page'>
       <Header />
-      <Route path='/:id' render={({ match }) => {
-        const isMovieID = this.state.movies.find(movie => movie.id === parseInt(match.params.id));
-        return isMovieID ? (
-          <MovieInfo id={match.params.id} changeDisplay={this.changeDisplay}/>
-        ) : (
-          <Redirect to='/'/>
-        )
-      }}/>
+      <Route path='/:id' render={({ match }) => this.displayChosenCard(match) }/>
       <Route exact path='/' render={() =>
         <MovieLibrary movies={this.state.movies} handleClick={this.handleClick}/>
       }/>
