@@ -69,7 +69,12 @@ class MovieInfo extends Component {
                 <p className='budget'>Budget: {this.convertDollarAmount(this.state.movie.budget)}</p>
                 <p className='revenue'>Revenue: {this.convertDollarAmount(this.state.movie.revenue)}</p>
               </div>
-              <NavLink exact to='/'> <button className='grow' onClick={this.props.changeDisplay}>Return Home</button> </NavLink>
+              <NavLink exact to='/'>
+                <button className='grow' onClick={this.props.changeDisplay}>
+                  <i class="fas fa-home"></i>
+                  Return Home
+                </button>
+              </NavLink>
             </div>
           </div>
         </div>

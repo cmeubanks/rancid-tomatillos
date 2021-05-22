@@ -1,26 +1,139 @@
 @media screen and (max-width: 1050px) {
 
   .link-container {
-    width: 32%;
+    width: 31%;
     height: 100%;
     padding-bottom: 1vw;
   }
 
-  .navbar h1 {
-    font-size: 7vw;
+  .navbar {
+    height: 160px;
+
+    h1 {
+      font-size: 8vw;
+    }
+  }
+
+  .poster {
+    height: 85%;
+  }
+
+  .movie-info-container {
+    @include flex-center(column);
+    background-size: cover;
+    background-position: center;
+  }
+
+  .movie-info {
+    @include flex-center(column);
+  }
+
+// MOBILE TOP
+
+  .movie-info-left {
+    height: 50%;
+    width: 100%;
+    margin-top: 2vw;
+
+    img {
+      height: 100%;
+    }
+  }
+
+  .tagline {
+    font-size: 2vw;
+  }
+
+// MOBILE BOTTOM
+
+  .movie-info-right {
+    height: 50%;
+    width: 100%;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 0;
+  }
+
+  .movie-info-box {
+    height: 90%;
+    width: 100%;
+    margin-top: 2vw;
+    padding: 1vw;
+
+    p {
+      font-size: 1.7vw;
+    }
+  }
+
+  .title {
+    margin: 1vw auto 2vw auto;
+    font-size: 4vw;
+  }
+
+  .movie-info button {
+    width: 20vw;
+    height: 4vw;
+    margin-top: 2vw;
+    font-size: 1.8vw;
   }
 }
 
 
-@media screen and (max-width: 625px) {
+@media screen and (max-width: 650px) {
 
   .link-container {
-    width: 47%;
-    height: 100%;
-    padding-bottom: 1vw;
+    width: 46%;
   }
 
-  .navbar h1 {
-    font-size: 8vw;
+  .navbar {
+    height: 80px;
+
+    h1 {
+      font-size: 7vw;
+    }
+  }
+
+  .movie-info-container {
+    height: 85vh;
+  }
+
+  .movie-info-left {
+    margin-top: 1vw;
+    height: 50%;
+  }
+
+  .poster {
+    height: 85%;
+    margin: 2vw 1vw 1vw 1vw;
+  }
+
+  .tagline {
+    font-size: 3vw;
+  }
+
+  .movie-info-right {
+    justify-content: flex-start;
+    height: 50%;
+  }
+
+  .movie-info-box {
+    padding: 3vw;
+    margin-top: 1vw;
+
+    p {
+      font-size: 2.5vw;
+    }
+  }
+
+  .title {
+    margin-bottom: 3vw;
+    font-size: 5vw;
+  }
+
+  .movie-info button {
+    width: 27vw;
+    height: 7vw;
+    font-size: 2.5vw;
+    margin-top: 1.8vw;
   }
 }
