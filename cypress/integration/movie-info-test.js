@@ -6,15 +6,15 @@ describe('Movie Info Loading', () => {
       .then((movie) => {
         cy.intercept('https://rancid-tomatillos.herokuapp.com/api/v2/movies/694919', {
           body: movie,
-          delay: 200,
+          delay: 100,
           statusCode: 200,
         });
         cy.visit('http://localhost:3000/694919')
       });
 
-      cy.wait(200).get('.message').should('contain', 'Page Loading 🍿')
+      cy.wait(150).get('.message').should('contain', 'Page Loading 🍿')
         .should('be.visible')
-      cy.wait(210).reload()
+      cy.wait(150).reload()
   });
 
 });
