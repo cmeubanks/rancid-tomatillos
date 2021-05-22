@@ -15,14 +15,10 @@ $jet: #2B2E2E;
 $eerie-black: #212121;
 
 // BASIC
+
 $white: #fff;
 $black: #000000;
-$red: #FF1F09;
 $blue: #228DFF;
-$yellow: #FFDD1B;
-$green: #B6FF00;
-$orange: #FF9900;
-$violet: #ff00de;
 
 // CONTAINER BACKGROUND
 
@@ -36,8 +32,14 @@ $shadow-main: inset 0 -3em 3em rgba(0, 0, 0, 0),
 
 // FONTS
 
-$limelight: 'Limelight', cursive;
-$vampiro: 'Vampiro One', cursive;
-$monoton: 'Monoton', cursive;
-$marker: 'Permanent Marker', cursive;
+$marker: 'Permanent Marker';
 $roboto: 'Roboto', sans-serif;
+
+// MIXINS
+
+@mixin flex-center($direction) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: center;
+  align-items: center;
+}
