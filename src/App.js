@@ -23,7 +23,6 @@ class App extends Component {
       .catch(error => this.setState( { error: error }))
   }
 
-
   cleanData = (data) => {
     return data.movies.map(movie => {
       return {
@@ -31,9 +30,7 @@ class App extends Component {
         poster_path: movie.poster_path
       }
     })
-
   }
-
 
   handleClick = (e) => {
     let id = parseInt(e.target.id);
