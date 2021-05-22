@@ -1,19 +1,35 @@
-describe('Movie Info', () => {
+describe('Movie Info Loading', () => {
+
+  it('Should display a loading page while fetching movie data', () => {
+
+    cy.fixture('../fixtures/single-movie-data.json')
+      .then((movie) => {
+        cy.intercept('https://rancid-tomatillos.herokuapp.com/api/v2/movies/694919', {
+          body: movie,
+          delay: 100,
+          statusCode: 200,
+        });
+        cy.visit('http://localhost:3000/694919')
+      });
+
+      cy.wait(150).get('.message').should('contain', 'Page Loading 🍿')
+        .should('be.visible')
+      cy.wait(150).reload()
+  });
+
+});
+
+describe('Movie Info Display', () => {
 
   before(() => {
     cy.fixture('../fixtures/single-movie-data.json')
       .then((movie) => {
-      cy.intercept('https://rancid-tomatillos.herokuapp.com/api/v2/movies/694919', {
-        body: movie,
-        statusCode: 200,
+        cy.intercept('https://rancid-tomatillos.herokuapp.com/api/v2/movies/694919', {
+          body: movie,
+          statusCode: 200,
+        });
       });
-    });
     cy.visit('http://localhost:3000/694919')
-  });
-
-  it('Should display a loading page while fetching movie data', () => {
-    cy.get('.message').should('contain', 'Page Loading 🍿')
-      .should('be.visible')
   });
 
   it('Should render the movie info display', () => {
@@ -30,35 +46,33 @@ describe('Movie Info', () => {
       .get('.avg-rating').contains(6)
   });
 
-  it('Should go back to the main page view when the Return Home button is clicked', () => {
-    cy.get('button').click()
-    cy.fixture('../fixtures/movies-data.json')
-    .then((movies) => {
-      cy.intercept('https://rancid-tomatillos.herokuapp.com/api/v2/movies', {
-        body: movies,
+});
+
+describe('Home Click', () => {
+
+  it('Should go back to main page view when the Return Home button is clicked', () => {
+
+    cy.fixture('../fixtures/single-movie-data.json')
+      .then((movie) => {
+      cy.intercept('https://rancid-tomatillos.herokuapp.com/api/v2/movies/694919', {
+        body: movie,
+        delay: 300,
         statusCode: 200,
       });
-      cy.visit('http://localhost:3000')
+      cy.visit('http://localhost:3000/694919')
     });
+
+    cy.fixture('../fixtures/movies-data.json')
+      .then((movies) => {
+        cy.intercept('https://rancid-tomatillos.herokuapp.com/api/v2/movies', {
+          body: movies,
+          delay: 300,
+          statusCode: 200,
+        });
+        cy.wait(300).get('button').click().reload()
+          .url().should('eq', 'http://localhost:3000/')
+          .get('.library').find('.movie-card').should('have.length', 1)
+      });
   });
 
 });
-
-// {
-//     "movie": {
-//         "id": 694919,
-//         "title": "Money Plane",
-//         "poster_path": "https://image.tmdb.org/t/p/original//6CoRTJTmijhBLJTUNoVSUNxZMEI.jpg",
-//         "backdrop_path": "https://image.tmdb.org/t/p/original//pq0JSpwyT2URytdFG0euztQPAyR.jpg",
-//         "release_date": "2020-09-29",
-//         "overview": "A professional thief with $40 million in debt and his family's life on the line must commit one final heist - rob a futuristic airborne casino filled with the world's most dangerous criminals.",
-//         "genres": [
-//             "Action"
-//         ],
-//         "budget": 0,
-//         "revenue": 0,
-//         "runtime": 82,
-//         "tagline": "",
-//         "average_rating": 6.142857142857143
-//     }
-// }
