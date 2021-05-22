@@ -71,7 +71,7 @@ class MovieInfo extends Component {
               </div>
               <NavLink exact to='/'>
                 <button className='grow' onClick={this.props.changeDisplay}>
-                  <i class="fas fa-home"></i>
+                  <i className='fas fa-home'></i>
                   Return Home
                 </button>
               </NavLink>
