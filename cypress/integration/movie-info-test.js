@@ -14,7 +14,7 @@ describe('Movie Info Loading', () => {
 
       cy.wait(200).get('.message').should('contain', 'Page Loading 🍿')
         .should('be.visible')
-      cy.wait(250).reload()
+      cy.wait(210).reload()
   });
 
 });
