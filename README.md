@@ -94,4 +94,5 @@ Users can browse through a collection of today's new movies and see what peaks t
 * Redirect to home page when invalid URL path is entered
 ![](https://media.giphy.com/media/fVw4HSzp0Be3QP22k9/giphy.gif)
 
-* 
+* Application Responsiveness
+![](https://media.giphy.com/media/cvIoyPhnbfpGfj3FE4/giphy.gif)
