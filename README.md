@@ -6,8 +6,7 @@
 * [Walkthrough](#walkthrough)
 * [Authors](#authors)
 * [Technologies](#technologies)
-* [Video Demos](#Video Demos)
-
+* [Demos](#demos)
 
 ## Description
 
@@ -50,9 +49,8 @@ Users can browse through a collection of today's new movies and see what peaks t
     <tr>
         <td> Peter Muellerleille <a href="https://github.com/pcmueller">GH</td>
         <td> Caroline Eubanks <a href="https://github.com/cmeubanks">GH</td>
-
     </tr>
-    </tr>
+    <tr>
         <td><img src="https://avatars.githubusercontent.com/u/51062974?v=4" alt="P. Muellerleille" width="125" height="auto" /></td>
         <td><img src="https://avatars.githubusercontent.com/u/73092355?v=4" alt="C. Eubanks" width="125" height="auto" /></td>
     </tr>
@@ -69,21 +67,20 @@ Users can browse through a collection of today's new movies and see what peaks t
         <td>SASS</td>
         <td>Cypress</td>
         <td>Heroku</td>
-
     </tr>
     </tr>
         <td><img src="https://user-images.githubusercontent.com/73092355/119360616-074c6580-bc68-11eb-8ac1-f1ca05b87bf8.png" alt="javascript" width="100" height="auto" /></td>
         <td><img src="https://user-images.githubusercontent.com/73092355/119361040-74f89180-bc68-11eb-845a-29ec9f93f095.png" alt="react" width="100" height="auto" /></td>
         <td><img src="https://user-images.githubusercontent.com/73092355/119361186-9d808b80-bc68-11eb-97ee-05bde2700716.png" alt="react router" width="100" height="auto" /></td>
-        <td><img src="https://user-images.githubusercontent.com/73092355/119360939-5b574a00-bc68-11eb-9349-377474f21bdc.png" alt="css" width="100" height="auto" /></td>
+        <td><img src="https://user-images.githubusercontent.com/73092355/119402191-d553f700-bc99-11eb-8cd3-6ef44023d530.png" alt="HTML" width="100" height="auto" /></td>
+        <td><img src="https://user-images.githubusercontent.com/73092355/119402395-1e0bb000-bc9a-11eb-9173-30403b8848d1.png" alt="css" width="100" height="auto" /></td>
         <td><img src="https://user-images.githubusercontent.com/73092355/119351057-49bc7500-bc5d-11eb-9e74-24ede01707c4.png" alt="SASS" width="100" height="auto" /></td>
         <td><img src="https://user-images.githubusercontent.com/73092355/119361263-b5f0a600-bc68-11eb-9f41-8e10aa013e7a.png" alt="Cypress" width="100" height="auto" /></td>
-        <td><img src="https://user-images.githubusercontent.com/73092355/119361383-d6206500-bc68-11eb-9454-657500606dca.png" alt="Heroku" width="100" height="auto" /></td>
-
+        <td><img src="https://user-images.githubusercontent.com/73092355/119402483-3bd91500-bc9a-11eb-9465-edf38b6a68d3.png" alt="Heroku" width="100" height="auto" /></td>
     </tr>
 </table>
 
-## Video Demos
+## Demos
 
 * Application In Use
 
@@ -97,6 +94,4 @@ Users can browse through a collection of today's new movies and see what peaks t
 
 ![](https://media.giphy.com/media/fVw4HSzp0Be3QP22k9/giphy.gif)
 
-* Application Responsiveness
 
-![](https://media.giphy.com/media/cvIoyPhnbfpGfj3FE4/giphy.gif)
