@@ -86,13 +86,17 @@ Users can browse through a collection of today's new movies and see what peaks t
 ## Video Demos
 
 * Application In Use
+
 ![](https://media.giphy.com/media/3jEr1SXcrBKopUnVq7/giphy.gif)
 
 * Navigation with navigation arrows
+
 ![](https://media.giphy.com/media/bOUasizZV1oGpTCOR0/giphy.gif)
 
 * Redirect to home page when invalid URL path is entered
+
 ![](https://media.giphy.com/media/fVw4HSzp0Be3QP22k9/giphy.gif)
 
 * Application Responsiveness
+
 ![](https://media.giphy.com/media/cvIoyPhnbfpGfj3FE4/giphy.gif)
