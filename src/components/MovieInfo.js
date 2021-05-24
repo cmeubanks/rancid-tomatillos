@@ -2,9 +2,6 @@ import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 import apiCalls from '../apiCalls';
 var dayjs = require('dayjs');
-// var duration = require('dayjs/plugin/duration');
-// dayjs.extend(duration);
-
 
 class MovieInfo extends Component {
   constructor(props) {
