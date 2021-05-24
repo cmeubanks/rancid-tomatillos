@@ -11,7 +11,6 @@ class App extends Component {
     super()
     this.state = {
       movies: null,
-      cardID: 0,
     }
   }
 
@@ -32,19 +31,10 @@ class App extends Component {
     })
   }
 
-  handleClick = (e) => {
-    let id = parseInt(e.target.id);
-    this.setState({ cardID: id });
-  }
-
-  changeDisplay = () => {
-    this.setState({ cardID: 0 });
-  }
-
   displayChosenCard = (match) => {
     const isMovieID = this.state.movies.find(movie => movie.id === parseInt(match.params.id));
     return isMovieID ? (
-      <MovieInfo id={match.params.id} changeDisplay={this.changeDisplay}/>
+      <MovieInfo id={match.params.id} />
     ) : (
       <Redirect to='/'/>
     )
@@ -65,7 +55,7 @@ class App extends Component {
       <Header />
       <Route path='/:id' render={({ match }) => this.displayChosenCard(match) }/>
       <Route exact path='/' render={() =>
-        <MovieLibrary movies={this.state.movies} handleClick={this.handleClick}/>
+        <MovieLibrary movies={this.state.movies} />
       }/>
       </div>
     );
