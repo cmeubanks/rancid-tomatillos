@@ -2,9 +2,6 @@ import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 import apiCalls from '../apiCalls';
 var dayjs = require('dayjs');
-// var duration = require('dayjs/plugin/duration');
-// dayjs.extend(duration);
-
 
 class MovieInfo extends Component {
   constructor(props) {
@@ -70,7 +67,7 @@ class MovieInfo extends Component {
                 <p className='revenue'>Revenue: {this.convertDollarAmount(this.state.movie.revenue)}</p>
               </div>
               <NavLink exact to='/'>
-                <button className='grow' onClick={this.props.changeDisplay}>
+                <button className='grow' >
                   <i className='fas fa-home'></i>
                   Return Home
                 </button>
