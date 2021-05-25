@@ -13,8 +13,13 @@ class MovieInfo extends Component {
 
   componentDidMount = () => {
     apiCalls.fetchAMovie(this.props.id)
-      .then(data => this.setState({ movie: data.movie }))
-      .catch(error => this.setState({ error: error }))
+      .then(data => 
+        this.setState({ movie: data.movie })
+      )
+      .catch(error => {
+        console.log(error);
+        this.setState({ error: 'Uh Oh, Something Went Wrong 🎭' })
+      })
   }
 
   convertDollarAmount(amount) {
@@ -37,12 +42,12 @@ class MovieInfo extends Component {
   }
 
   render() {
-    if (!this.state.movie) {
-      return <h2 className='message'>Page Loading 🍿</h2>
+    if (this.state.error) {
+      return (<h2 className='message'>{this.state.error}</h2>)
     }
 
-    if (this.state.error) {
-      return (<p>{this.state.error}</p>)
+    if (!this.state.error && !this.state.movie) {
+      return <h2 className='message'>Page Loading 🍿</h2>
     }
 
     return (
@@ -61,15 +66,13 @@ class MovieInfo extends Component {
                 <p className='release-date'>Release Date: {dayjs(this.state.movie.release_date).format('MMMM D, YYYY')}</p>
                 <p className='overview'>{this.state.movie.overview}</p>
                 <p className='runtime'>{this.state.movie.runtime} minutes</p>
-                <p className='avg-rating'>
-                  Average Rating: {Math.round(this.state.movie.average_rating)} / 10 <i className="fas fa-star"></i>
-                </p>
+                <p className='avg-rating'>Average Rating: {Math.round(this.state.movie.average_rating)}</p>
                 <p className='genres'>Genre: {this.displayGenres(this.state.movie.genres)}</p>
                 <p className='budget'>Budget: {this.convertDollarAmount(this.state.movie.budget)}</p>
                 <p className='revenue'>Revenue: {this.convertDollarAmount(this.state.movie.revenue)}</p>
               </div>
               <NavLink exact to='/'>
-                <button className='grow' onClick={this.props.changeDisplay}>
+                <button className='grow' >
                   <i className='fas fa-home'></i>
                   Return Home
                 </button>
