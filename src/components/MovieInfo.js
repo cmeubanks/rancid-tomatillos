@@ -63,7 +63,8 @@ class MovieInfo extends Component {
             <div className='movie-right-wrapper'>
               <div className='movie-info-box'>
                 <h1 className='title'>{this.state.movie.title}</h1>
-                <p className='release-date'>Release Date: {dayjs(this.state.movie.release_date).format('MMMM D, YYYY')}</p>
+                <p className='release-date'> 
+                  Release Date: {dayjs(this.state.movie.release_date).format('MMMM D, YYYY')}</p>
                 <p className='overview'>{this.state.movie.overview}</p>
                 <p className='runtime'>{this.state.movie.runtime} minutes</p>
                 <p className='avg-rating'> 
