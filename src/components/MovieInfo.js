@@ -66,7 +66,9 @@ class MovieInfo extends Component {
                 <p className='release-date'>Release Date: {dayjs(this.state.movie.release_date).format('MMMM D, YYYY')}</p>
                 <p className='overview'>{this.state.movie.overview}</p>
                 <p className='runtime'>{this.state.movie.runtime} minutes</p>
-                <p className='avg-rating'>Average Rating: {Math.round(this.state.movie.average_rating)}</p>
+                <p className='avg-rating'> 
+                  Average Rating: {Math.round(this.state.movie.average_rating)}/10 <i className="fas fa-star"></i>
+                </p>
                 <p className='genres'>Genre: {this.displayGenres(this.state.movie.genres)}</p>
                 <p className='budget'>Budget: {this.convertDollarAmount(this.state.movie.budget)}</p>
                 <p className='revenue'>Revenue: {this.convertDollarAmount(this.state.movie.revenue)}</p>
