@@ -1,7 +1,6 @@
 describe('Movie Info Page', () => {
 
   beforeEach(() => {
-    // see: cypress/support/commands.js
     cy.stubSingleMovieData()
   });
 
@@ -28,8 +27,8 @@ describe('Movie Info Page', () => {
       .get('.release-date').contains('September 29, 2020')
       .get('.overview').contains('A professional thief')
       .get('.genres').contains('Action')
-      .get('.budget').contains('This information is unavailable')
-      .get('.revenue').contains('This information is unavailable')
+      .get('.budget').contains('unavailable')
+      .get('.revenue').contains('unavailable')
       .get('.runtime').contains(82)
       .get('.tagline').eq('')
       .get('.avg-rating').contains(6)
@@ -37,17 +36,22 @@ describe('Movie Info Page', () => {
 
   });
 
-  describe('Return Home Click', () => {
+  describe('Movie Info Navigation', () => {
 
     before(() => {
       cy.interceptAllMoviesData()
     });
 
-    it('Should go back to main page view when the Return Home button is clicked', () => {
-
+    it('Should go back to main page view when "Return Home" button is clicked', () => {
       cy.get('button').click()
         .url().should('eq', 'http://localhost:3000/')
         .get('.library').find('.movie-card').should('have.length', 1)
+    });
+
+    it('Should be able refresh movie info display', () => {
+      cy.interceptSingleMovieData()
+        .reload()
+        .get('.title').contains('Money Plane')
     });
 
   });

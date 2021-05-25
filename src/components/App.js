@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import apiCalls from './apiCalls';
-import Header from './components/Header';
-import MovieLibrary from './components/MovieLibrary';
-import MovieInfo from './components/MovieInfo';
-import './index.scss';
+import apiCalls from '../apiCalls';
+import Header from './Header';
+import MovieLibrary from './MovieLibrary';
+import MovieInfo from './MovieInfo';
+import '../index.scss';
 import { Route, Redirect } from 'react-router-dom';
 
 class App extends Component {
@@ -17,11 +17,11 @@ class App extends Component {
   componentDidMount = () => {
     apiCalls.fetchAllMovies()
       .then(data => {
-        this.setState({ movies: this.cleanData(data)})
+        this.setState({ movies: this.cleanData(data) })
       })
       .catch((error) => {
-      console.log(error);
-      this.setState({ error: 'Uh Oh, Something Went Wrong :performing_arts:' });
+        console.log(error);
+        this.setState({ error: 'Uh Oh, Something Went Wrong 🎭' });
       })
   }
 
@@ -45,8 +45,7 @@ class App extends Component {
 
   render() {
     if (this.state.error) {
-      console.log(this.state.error)
-      return <h2 className='message'>Uh Oh, Something Went Wrong 🎭</h2>
+      return <h2 className='message'>{this.state.error}</h2>
     }
 
     if (!this.state.error && !this.state.movies) {

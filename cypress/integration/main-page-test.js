@@ -1,7 +1,6 @@
 describe('Main Page', () => {
 
   beforeEach(() => {
-    // see: cypress/support/commands.js
     cy.stubAllMoviesData()
   });
 
@@ -39,13 +38,20 @@ describe('Main Page', () => {
 
   });
 
-  describe('Main Click', () => {
+  describe('Main Navigation', () => {
 
     it('Should be able to click a movie poster to go display that movie\'s info', () => {
       cy.interceptSingleMovieData()
         .get('.movie-card').click()
         .url().should('eq', 'http://localhost:3000/694919')
     });
+
+    it('Should be able to enter movie\'s ID as URL path to reroute to that movie\'s info', () => {
+      cy.interceptSingleMovieData()
+        .visit('http://localhost:3000/694919')
+        .get('.title').contains('Money Plane')
+    });
+    
   });
 
 });
